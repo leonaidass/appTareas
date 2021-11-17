@@ -10,7 +10,8 @@ var app = new Vue({
            horario:"10:30 a 11:00 hs"}
       ],
       tituloInput:"",
-      horarioInput:""
+      horarioInput:"",
+      
     },
     methods:{
         agregarTarea(){
@@ -20,6 +21,14 @@ var app = new Vue({
                this.tareas.push(newTarea) 
             
 
+        },
+        eliminar(valori){
+           this.tareas.splice(valori,1) 
         } 
+    },
+    computed:{
+           cantidad(){
+               return this.tareas.length
+           }
     } 
   })
