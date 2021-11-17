@@ -11,6 +11,8 @@ var app = new Vue({
       ],
       tituloInput:"",
       horarioInput:"",
+      alerta:false,
+      mensaje:""
       
     },
     methods:{
@@ -18,12 +20,20 @@ var app = new Vue({
            const newTarea = {
                titulo:this.tituloInput,
                horario:this.horarioInput}
-               this.tareas.push(newTarea) 
-            
-
+               this.tareas.push(newTarea);
+               this.mostraralerta("Tarea Agregada Exitosamente ") 
+             
         },
         eliminar(valori){
-           this.tareas.splice(valori,1) 
+           this.tareas.splice(valori,1);
+           this.mostraralerta("Tarea Eliminada ") 
+        },
+        mostraralerta(mensajes){
+            this.mensaje=mensajes
+            this.alerta= true
+            setTimeout(() => {
+             this.alerta= false
+            }, 3000);
         } 
     },
     computed:{
